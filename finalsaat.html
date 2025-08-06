@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Page</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 60px;
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 50px;
+    }
+
+    .number-button {
+      display: inline-block;
+      width: 80px;
+      margin: 10px;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .number-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .num08 { background-color: #ff6f61; }
+    .num09 { background-color: #6a5acd; }
+    .num10 { background-color: #20b2aa; }
+    .num11 { background-color: #ffb347; }
+    .num12 { background-color: #ff7eb9; }
+    .num13 { background-color: #7bdff2; }
+    .num14 { background-color: #f6d365; }
+    .num15 { background-color: #f093fb; }
+    .num16 { background-color: #00c6ff; }
+    .num17 { background-color: #ff9a9e; }
+  </style>
+</head>
+<body>
+
+  <h1>⏰ Saat Seçimi</h1>
+
+  <form action="https://formsubmit.co/your-email@example.com" method="POST">
+    <!-- FormSubmit için e-posta adresini değiştirin -->
+    <input type="hidden" name="_next" value="tarih.html">
+    <input type="hidden" name="_captcha" value="false">
+
+    <button class="number-button num08" type="submit" name="Saat" value="08">08</button>
+    <button class="number-button num09" type="submit" name="Saat" value="09">09</button>
+    <button class="number-button num10" type="submit" name="Saat" value="10">10</button>
+    <button class="number-button num11" type="submit" name="Saat" value="11">11</button>
+    <button class="number-button num12" type="submit" name="Saat" value="12">12</button>
+    <button class="number-button num13" type="submit" name="Saat" value="13">13</button>
+    <button class="number-button num14" type="submit" name="Saat" value="14">14</button>
+    <button class="number-button num15" type="submit" name="Saat" value="15">15</button>
+    <button class="number-button num16" type="submit" name="Saat" value="16">16</button>
+    <button class="number-button num17" type="submit" name="Saat" value="17">17</button>
+  </form>
+
+</body>
+</html>
 
