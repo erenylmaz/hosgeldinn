@@ -68,11 +68,19 @@
       border-radius: 12px;
       cursor: pointer;
       color: #fff;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+      outline: none;
     }
     .option-button:hover {
       transform: scale(1.1);
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    /* Selected style */
+    .selected {
+      box-shadow: 0 0 20px rgba(255,255,255,0.8);
+      border: 3px solid #fff;
+      transform: scale(1.1);
     }
 
     /* Colors */
@@ -105,7 +113,6 @@
       transform: scale(1.05);
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
     }
-
   </style>
 </head>
 <body>
@@ -127,21 +134,21 @@
     <input type="hidden" name="Saat" id="SaatInput">
 
     <div id="yer" class="tab-content active">
-      <button type="button" class="option-button kütüphane" onclick="selectOption('Yer', 'Kütüphane')">Kütüphane</button>
-      <button type="button" class="option-button sa-bank" onclick="selectOption('Yer', 'SA Bank')">SA Bank</button>
-      <button type="button" class="option-button kat-77" onclick="selectOption('Yer', '77 3.Kat')">77 3.Kat</button>
+      <button type="button" class="option-button kütüphane" onclick="selectOption('Yer', 'Kütüphane', this)">Kütüphane</button>
+      <button type="button" class="option-button sa-bank" onclick="selectOption('Yer', 'SA Bank', this)">SA Bank</button>
+      <button type="button" class="option-button kat-77" onclick="selectOption('Yer', '77 3.Kat', this)">77 3.Kat</button>
     </div>
 
     <div id="tarih" class="tab-content">
-      <button type="button" class="option-button tarih1" onclick="selectOption('Tarih', '7')">7</button>
-      <button type="button" class="option-button tarih2" onclick="selectOption('Tarih', '8')">8</button>
-      <button type="button" class="option-button tarih3" onclick="selectOption('Tarih', '9')">9</button>
+      <button type="button" class="option-button tarih1" onclick="selectOption('Tarih', '7', this)">7</button>
+      <button type="button" class="option-button tarih2" onclick="selectOption('Tarih', '8', this)">8</button>
+      <button type="button" class="option-button tarih3" onclick="selectOption('Tarih', '9', this)">9</button>
     </div>
 
     <div id="saat" class="tab-content">
-      <button type="button" class="option-button saat1" onclick="selectOption('Saat', '08')">08</button>
-      <button type="button" class="option-button saat2" onclick="selectOption('Saat', '09')">09</button>
-      <button type="button" class="option-button saat3" onclick="selectOption('Saat', '10')">10</button>
+      <button type="button" class="option-button saat1" onclick="selectOption('Saat', '08', this)">08</button>
+      <button type="button" class="option-button saat2" onclick="selectOption('Saat', '09', this)">09</button>
+      <button type="button" class="option-button saat3" onclick="selectOption('Saat', '10', this)">10</button>
     </div>
 
     <button type="submit" id="submitBtn">Seçimleri Gönder</button>
@@ -162,11 +169,18 @@
       });
     });
 
-    // Option selection
-    function selectOption(type, value) {
+    // Option selection with visual feedback
+    function selectOption(type, value, btn) {
       if(type === 'Yer') document.getElementById('YerInput').value = value;
       if(type === 'Tarih') document.getElementById('TarihInput').value = value;
       if(type === 'Saat') document.getElementById('SaatInput').value = value;
+
+      // Remove previous selection in this tab
+      const buttons = btn.parentElement.querySelectorAll('.option-button');
+      buttons.forEach(b => b.classList.remove('selected'));
+
+      // Add selected class
+      btn.classList.add('selected');
     }
   </script>
 
