@@ -34,14 +34,14 @@
   <p class="hint">💡 Hint: kızının adı.</p>
 
   <script>
-    const correctPassword = "nihil"; // ← Doğru şifre burada
+    const correctPassword = "nihil"; // ← Şifren burası
 
     function checkPassword() {
-      const input = document.getElementById("passwordInput").value;
+      const input = document.getElementById("passwordInput").value.trim().toLowerCase();
       const errorMsg = document.getElementById("errorMsg");
 
-      if (input === correctPassword) {
-        window.location.href = "secret.html"; // Doğruysa secret.html’e gider
+      if (input === correctPassword.toLowerCase()) {
+        window.location.href = "secret.html"; // ← Doğru girildiyse yönlendirme burada
       } else {
         errorMsg.textContent = "Wrong password. Try again.";
       }
@@ -50,4 +50,3 @@
 
 </body>
 </html>
-Add index.html
