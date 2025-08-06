@@ -1,133 +1,158 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Renkli Seçim Formu</title>
-<style>
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    text-align: center;
-    padding: 40px;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    color: #fff;
-  }
-  @keyframes gradientBG {
-    0% {background-position:0% 50%;}
-    50% {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
-  }
-  h1 { font-size: 36px; margin-bottom: 30px; text-shadow: 2px 2px 6px rgba(0,0,0,0.3); }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seçimler</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+    h1 { font-size: 36px; color: #fff; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);}
+    .tabs { display: flex; justify-content: center; margin-bottom: 20px; }
+    .tab { padding: 15px 25px; cursor: pointer; background: rgba(255,255,255,0.2); margin: 0 5px; border-radius: 10px; color: #fff; font-weight: bold; transition: 0.2s; }
+    .tab.active { background: rgba(255,255,255,0.8); color: #333; }
+    .tab-content { display: none; margin-top: 20px; }
+    .tab-content.active { display: block; }
+    .option-button {
+      display: inline-block;
+      margin: 15px;
+      padding: 20px 25px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+      opacity: 0.8;
+    }
+    .option-button.selected { box-shadow: 0 0 25px rgba(0,0,0,0.5); transform: scale(1.1); opacity: 1; }
+    /* Renkler */
+    .kütüphane { background-color: #ff6f61; }
+    .sa-bank { background-color: #6a5acd; }
+    .kat-77 { background-color: #20b2aa; }
 
-  .tabs { margin-bottom: 30px; }
-  .tab-button {
-    padding: 12px 25px;
-    font-size: 18px;
-    margin: 0 5px;
-    cursor: pointer;
-    border: none;
-    border-radius: 12px;
-    color: #fff;
-    background-color: rgba(0,0,0,0.3);
-    transition: 0.3s;
-  }
-  .tab-button.active { background-color: rgba(255,255,255,0.4); color: #000; }
+    .date07 { background-color: #ffb347; }
+    .date08 { background-color: #ff7eb9; }
+    .date09 { background-color: #7bdff2; }
+    .date10 { background-color: #f6d365; }
+    .date11 { background-color: #f093fb; }
+    .date12 { background-color: #00c6ff; }
+    .date13 { background-color: #ff9a9e; }
 
-  .tab-content { display: none; }
-  .tab-content.active { display: block; margin-top: 20px; }
+    .num08 { background-color: #ff6f61; }
+    .num09 { background-color: #6a5acd; }
+    .num10 { background-color: #20b2aa; }
+    .num11 { background-color: #ffb347; }
+    .num12 { background-color: #ff7eb9; }
+    .num13 { background-color: #7bdff2; }
+    .num14 { background-color: #f6d365; }
+    .num15 { background-color: #f093fb; }
+    .num16 { background-color: #00c6ff; }
+    .num17 { background-color: #ff9a9e; }
 
-  .option-button {
-    display: inline-block;
-    margin: 10px;
-    padding: 15px 25px;
-    font-size: 18px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    color: #fff;
-    transition: 0.3s;
-  }
-  .option-button.selected { box-shadow: 0 0 15px #fff; transform: scale(1.1); }
-
-  .yer1 { background-color: #ff6f61; }
-  .yer2 { background-color: #6a5acd; }
-  .yer3 { background-color: #20b2aa; }
-
-  .tarih { background-color: #ffb347; }
-  .saat { background-color: #00c6ff; }
-</style>
+    .submit-btn { margin-top: 40px; padding: 20px 40px; font-size: 20px; border: none; border-radius: 15px; cursor: pointer; background: #fff; color: #333; font-weight: bold; transition: transform 0.2s, box-shadow 0.2s;}
+    .submit-btn:hover { transform: scale(1.1); box-shadow: 0 0 25px rgba(0,0,0,0.5);}
+  </style>
 </head>
 <body>
 
-<h1>🌟 Renkli Seçim Formu 🌟</h1>
+  <h1>🎉 Seçim Şovu 🎉</h1>
 
-<form action="final.html" method="POST">
+  <form action="https://formsubmit.co/erenylmaz13@gmail.com" method="POST">
+    <input type="hidden" name="_next" value="final.html">
+    <input type="hidden" name="_captcha" value="false">
 
-  <div class="tabs">
-    <button type="button" class="tab-button active" onclick="showTab('yer')">Yer</button>
-    <button type="button" class="tab-button" onclick="showTab('tarih')">Tarih</button>
-    <button type="button" class="tab-button" onclick="showTab('saat')">Saat</button>
-  </div>
+    <div class="tabs">
+      <div class="tab active" data-tab="yer">Yer</div>
+      <div class="tab" data-tab="tarih">Tarih</div>
+      <div class="tab" data-tab="saat">Saat</div>
+    </div>
 
-  <!-- Yer Sekmesi -->
-  <div id="yer" class="tab-content active">
-    <button type="button" class="option-button yer1" data-name="Yer" data-value="Kütüphane" onclick="selectOption(this)">Kütüphane</button>
-    <button type="button" class="option-button yer2" data-name="Yer" data-value="SA Bank" onclick="selectOption(this)">SA Bank</button>
-    <button type="button" class="option-button yer3" data-name="Yer" data-value="77 3.Kat" onclick="selectOption(this)">77 3.Kat</button>
-  </div>
+    <!-- Yer -->
+    <div class="tab-content active" id="yer">
+      <button type="button" class="option-button kütüphane" data-name="Yer" data-value="Kütüphane">Kütüphane</button>
+      <button type="button" class="option-button sa-bank" data-name="Yer" data-value="SA Bank">SA Bank</button>
+      <button type="button" class="option-button kat-77" data-name="Yer" data-value="77 3.Kat">77 3.Kat</button>
+    </div>
 
-  <!-- Tarih Sekmesi -->
-  <div id="tarih" class="tab-content">
-    <script>
-      for(let i=7; i<=15; i++){
-        document.write(`<button type="button" class="option-button tarih" data-name="Tarih" data-value="${i}" onclick="selectOption(this)">${i}</button>`);
-      }
-    </script>
-  </div>
+    <!-- Tarih -->
+    <div class="tab-content" id="tarih">
+      <button type="button" class="option-button date07" data-name="Tarih" data-value="07">07</button>
+      <button type="button" class="option-button date08" data-name="Tarih" data-value="08">08</button>
+      <button type="button" class="option-button date09" data-name="Tarih" data-value="09">09</button>
+      <button type="button" class="option-button date10" data-name="Tarih" data-value="10">10</button>
+      <button type="button" class="option-button date11" data-name="Tarih" data-value="11">11</button>
+      <button type="button" class="option-button date12" data-name="Tarih" data-value="12">12</button>
+      <button type="button" class="option-button date13" data-name="Tarih" data-value="13">13</button>
+    </div>
 
-  <!-- Saat Sekmesi -->
-  <div id="saat" class="tab-content">
-    <script>
-      for(let i=8; i<=17; i++){
-        document.write(`<button type="button" class="option-button saat" data-name="Saat" data-value="${i}" onclick="selectOption(this)">${i}</button>`);
-      }
-    </script>
-  </div>
+    <!-- Saat -->
+    <div class="tab-content" id="saat">
+      <button type="button" class="option-button num08" data-name="Saat" data-value="08">08</button>
+      <button type="button" class="option-button num09" data-name="Saat" data-value="09">09</button>
+      <button type="button" class="option-button num10" data-name="Saat" data-value="10">10</button>
+      <button type="button" class="option-button num11" data-name="Saat" data-value="11">11</button>
+      <button type="button" class="option-button num12" data-name="Saat" data-value="12">12</button>
+      <button type="button" class="option-button num13" data-name="Saat" data-value="13">13</button>
+      <button type="button" class="option-button num14" data-name="Saat" data-value="14">14</button>
+      <button type="button" class="option-button num15" data-name="Saat" data-value="15">15</button>
+      <button type="button" class="option-button num16" data-name="Saat" data-value="16">16</button>
+      <button type="button" class="option-button num17" data-name="Saat" data-value="17">17</button>
+    </div>
 
-  <!-- Hidden inputlar -->
-  <input type="hidden" name="Yer" id="YerInput">
-  <input type="hidden" name="Tarih" id="TarihInput">
-  <input type="hidden" name="Saat" id="SaatInput">
+    <br>
+    <button type="submit" class="submit-btn">Gönder 🎉</button>
+  </form>
 
-  <div style="margin-top:30px;">
-    <button type="submit" style="padding:15px 40px; font-size:20px; border:none; border-radius:12px; background-color:#ffeb3b; color:#000; cursor:pointer;">Seçimleri Gönder 🎉</button>
-  </div>
+  <script>
+    // Sekme geçişi
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const target = tab.getAttribute('data-tab');
+        contents.forEach(c => c.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+      });
+    });
 
-</form>
+    // Buton seçim ve form input oluşturma
+    const optionButtons = document.querySelectorAll('.option-button');
+    optionButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-name');
+        const value = btn.getAttribute('data-value');
 
-<script>
-  function showTab(tabId){
-    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
-    document.getElementById(tabId).classList.add('active');
+        // Aynı sekmedeki diğer butonların seçili sınıfını kaldır
+        document.querySelectorAll(`.option-button[data-name="${name}"]`).forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
 
-    document.querySelectorAll('.tab-button').forEach(b=>b.classList.remove('active'));
-    event.currentTarget.classList.add('active');
-  }
-
-  function selectOption(btn){
-    const name = btn.getAttribute('data-name');
-    const value = btn.getAttribute('data-value');
-
-    // hidden input update
-    document.getElementById(name + 'Input').value = value;
-
-    // seçili görsel efekt
-    document.querySelectorAll(`.option-button[data-name="${name}"]`).forEach(b=>b.classList.remove('selected'));
-    btn.classList.add('selected');
-  }
-</script>
+        // Form içinde hidden input
+        let hiddenInput = document.querySelector(`input[name="${name}"]`);
+        if (!hiddenInput) {
+          hiddenInput = document.createElement('input');
+          hiddenInput.type = 'hidden';
+          hiddenInput.name = name;
+          document.querySelector('form').appendChild(hiddenInput);
+        }
+        hiddenInput.value = value;
+      });
+    });
+  </script>
 
 </body>
 </html>
