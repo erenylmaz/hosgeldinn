@@ -1,27 +1,68 @@
-<form action="https://formsubmit.co/erenylmaz13@gmail.com" method="POST" id="feedbackForm">
-  <label for="color">En sevdiğin renk?</label>
-  <select id="color" name="Renk">
-    <option value="">Seç...</option>
-    <option value="Kırmızı">Kırmızı</option>
-    <option value="Mavi">Mavi</option>
-    <option value="Yeşil">Yeşil</option>
-    <option value="Mor">Mor</option>
-  </select>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bonus Page</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 60px;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
 
-  <label for="site">Bu mini site hakkında ne düşünüyorsun?</label>
-  <select id="site" name="Site Yorumu">
-    <option value="">Seç...</option>
-    <option value="Harika!">Harika!</option>
-    <option value="Güzeldi">Güzeldi</option>
-    <option value="Daha iyi olabilir">Daha iyi olabilir</option>
-  </select>
+    @keyframes gradientBG {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
 
-  <label for="message">Başka bir şey demek ister misin?</label>
-  <textarea id="message" name="Mesaj" rows="4" placeholder="Yorumunu buraya yaz..."></textarea>
+    h1 {
+      font-size: 36px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      margin-bottom: 50px;
+    }
 
-  <!-- Gizli input: FormSubmit otomatik teşekkür sayfası için -->
-  <input type="hidden" name="_next" value="https://kullaniciadi.github.io/sitename/tesekkur.html">
-  <input type="hidden" name="_captcha" value="false">
+    .option-button {
+      display: block;
+      width: 250px;
+      margin: 20px auto;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
 
-  <button type="submit">Gönder</button>
-</form>
+    .option-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    .kütüphane { background-color: #ff6f61; }
+    .sa-bank { background-color: #6a5acd; }
+    .kat-77 { background-color: #20b2aa; }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Bonus Time! 🎉</h1>
+
+  <form action="https://formsubmit.co/erenylmaz13@gmail.com" method="POST">
+    <input type="hidden" name="_next" value="final.html">
+    <input type="hidden" name="_captcha" value="false">
+
+    <button class="option-button kütüphane" type="submit" name="Secim" value="Kütüphane">Kütüphane</button>
+    <button class="option-button sa-bank" type="submit" name="Secim" value="SA Bank">SA Bank</button>
+    <button class="option-button kat-77" type="submit" name="Secim" value="77 3.Kat">77 3.Kat</button>
+  </form>
+
+</body>
+</html>
