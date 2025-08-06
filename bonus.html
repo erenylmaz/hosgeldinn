@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎉 Tebrikler!</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 60px;
+    }
+
+    h1 {
+      font-size: 3em;
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff; }
+      to { text-shadow: 0 0 20px #ff0080, 0 0 30px #ff0080; }
+    }
+
+    .question {
+      margin-top: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    .question p {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .question label {
+      display: block;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff0080;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎊 Doğru bildin! Hoş geldin! 🎊</h1>
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="question">
+    <p>🌈 Soru: Hangisi en sevdiğim renk?</p>
+    <form id="quizForm">
+      <label><input type="radio" name="color" value="Mavi"> Mavi</label>
+      <label><input type="radio" name="color" value="Siyah"> Siyah</label>
+      <label><input type="radio" name="color" value="Mor"> Mor</label>
+      <label><input type="radio" name="color" value="Yeşil"> Yeşil</label>
+      <button type="submit">Cevabı Gönder</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    // 🎉 Patlamalı karşılama efekti
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+
+    // 🧠 Soru kontrolü
+    const form = document.getElementById("quizForm");
+    const result = document.getElementById("result");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const answer = document.querySelector('input[name="color"]:checked');
+
+      if (!answer) {
+        result.textContent = "Lütfen bir şık seç!";
+        result.style.color = "orange";
+        return;
+      }
+
+      if (answer.value === "Mor") {
+        result.textContent = "✅ Doğru cevap! Harikasın!";
+        result.style.color = "lime";
+        confetti({
+          particleCount: 100,
+          spread: 80,
+          origin: { y: 0.4 }
+        });
+      } else {
+        result.textContent = "❌ Yanlış cevap. Bir daha dene!";
+        result.style.color = "red";
+      }
+    });
+  </script>
+
+</body>
+</html>
